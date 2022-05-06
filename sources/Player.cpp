@@ -46,16 +46,17 @@ namespace coup{
         return *this;
     }
 
-    Player &Player::coup(Player player2) {
+    void Player::coup(Player player2) {
         if(p_game->Turns.front()!=this->name){
             throw invalid_argument("Not your turn");
         }
         if(this->Coins < 7){
             throw invalid_argument("Not enough coins to do this action");
         }
+        p_game->Bank_of_Actions.at(p_game->player_position(name))
+                = "coup "+player2.name;
         this->Coins-=7;
         p_game->remove_player(player2.name);
-        return *this;
     }
 
 

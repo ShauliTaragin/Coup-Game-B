@@ -4,6 +4,10 @@
 #include "Game.hpp"
 using namespace std;
 namespace coup{
+
+    //I want to add a function to change to next player which its his turn meaninig is alive
+
+
     Game::Game() {
     }
 

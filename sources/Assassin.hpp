@@ -9,7 +9,7 @@ namespace coup{
     class Assassin:public Player{
     public:
         Assassin(Game & game, string player_name): Player(game,player_name){}
-        Player& coup(Player& player1);
+        void coup(Player& player1);
         string role(){
             return "Assassin";
         }
