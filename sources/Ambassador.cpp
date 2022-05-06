@@ -7,8 +7,6 @@ namespace coup {
 
 
     void Ambassador::block(Player & player1) {
-        player1.action_on_him->Coins+=2;
-        player1.Coins-=2;
         size_t i = p_game->player_position(player1.name);
         if(p_game->Bank_of_Actions.at(i)[0]=='1'){
             player1.action_on_him->Coins+=1;

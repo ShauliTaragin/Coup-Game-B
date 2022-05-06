@@ -17,6 +17,9 @@ namespace coup{
             p_game->remove_player(player1.name);
             p_game->Bank_of_Actions.at(p_game->player_position(name))
                     = "coup "+player1.name;
+            string player_which_played = p_game->Turns.front();
+            p_game->Turns.pop();
+            p_game->Turns.push(player_which_played);
             p_game->change_Turn();
             return;
         }

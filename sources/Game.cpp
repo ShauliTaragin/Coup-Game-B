@@ -27,6 +27,9 @@ namespace coup{
 
     //changed this according to having boolean for each player if hes alive or not
     string Game::winner(){
+        if (Players.size()<2){
+            throw invalid_argument("no game yet!");
+        }
         vector<string> temp_players;
         for (size_t i = 0; i < alive.size() ; ++i) {
             if (alive.at(i)){

@@ -13,6 +13,7 @@ namespace coup{
         vector<bool> alive;
         queue<string> Turns;
         vector<string> Bank_of_Actions;
+        bool started = true;
         /* income
          * foreign_aid
          * coup player_name
@@ -30,6 +31,7 @@ namespace coup{
         void remove_player(string player_name);
         size_t player_position(string player_name);
         void change_Turn();
+        bool is_player_alive(string player_name);
         //other methods we need for game:
         //next() -> perhaps runned by a queue
         //remove ->removing player perhaps from queue and vector
