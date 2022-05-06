@@ -29,7 +29,7 @@ namespace coup{
         string winner();
         void remove_player(string player_name);
         size_t player_position(string player_name);
-
+        void change_Turn();
         //other methods we need for game:
         //next() -> perhaps runned by a queue
         //remove ->removing player perhaps from queue and vector

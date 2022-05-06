@@ -14,6 +14,8 @@ namespace coup{
             p_game->remove_player(player1.name);
             p_game->Bank_of_Actions.at(p_game->player_position(name))
                     = "coup "+player1.name;
+            p_game->change_Turn();
+            return;
         }
         if(this->Coins < 3){
             throw invalid_argument("Not enough coins to do this action");
@@ -23,6 +25,6 @@ namespace coup{
         this->Coins-=3;
         action_on_him = &player1;
         p_game->remove_player(player1.name);
-
+        p_game->change_Turn();
     }
 }

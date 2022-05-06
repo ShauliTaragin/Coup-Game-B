@@ -32,5 +32,6 @@ namespace coup {
         p_game->Turns.push(player_which_played);
         p_game->Bank_of_Actions.at(p_game->player_position(name))
         = "transfer "+player1.name+" "+player2.name;
+        p_game->change_Turn();
     }
 }

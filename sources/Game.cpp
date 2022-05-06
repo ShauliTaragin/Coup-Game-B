@@ -72,5 +72,19 @@ namespace coup{
         }
         throw invalid_argument("this player is not in the game");
     }
+    void Game::change_Turn() {
+        while(true){
+            string curr_player_name = Turns.front();
+            size_t i = player_position(curr_player_name);
+            if (alive.at(i)){
+                break;
+            }
+
+            //check if i should completely erease a player i found to be dead
+            string player_currently_dead = Turns.front();
+            Turns.pop();
+            Turns.push(player_currently_dead);
+        }
+    }
 }
 

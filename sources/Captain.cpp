@@ -42,5 +42,6 @@ namespace coup{
         string player_which_played = p_game->Turns.front();
         p_game->Turns.pop();
         p_game->Turns.push(player_which_played);
+        p_game->change_Turn();
     }
 }

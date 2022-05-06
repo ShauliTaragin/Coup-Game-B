@@ -30,6 +30,7 @@ namespace coup{
         p_game->Turns.pop();
         p_game->Turns.push(player_which_played);
         p_game->Bank_of_Actions.at(p_game->player_position(name)) = "income" ;
+        p_game->change_Turn();
         return *this;
     }
     Player &Player::foreign_aid() {
@@ -43,6 +44,7 @@ namespace coup{
         p_game->Turns.pop();
         p_game->Turns.push(player_which_played);
         p_game->Bank_of_Actions.at(p_game->player_position(name)) = "foreign_aid" ;
+        p_game->change_Turn();
         return *this;
     }
 
@@ -57,6 +59,7 @@ namespace coup{
                 = "coup "+player2.name;
         this->Coins-=7;
         p_game->remove_player(player2.name);
+        p_game->change_Turn();
     }
 
 
