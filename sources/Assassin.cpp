@@ -6,6 +6,9 @@
 namespace coup{
 
     void Assassin::coup(Player& player1) {
+        if(!p_game->is_player_alive(player1.name)){
+            throw invalid_argument("player already dead");
+        }
         if(p_game->Turns.front()!=this->name){
             throw invalid_argument("Not your turn");
         }
@@ -25,6 +28,10 @@ namespace coup{
         this->Coins-=3;
         action_on_him = &player1;
         p_game->remove_player(player1.name);
+        //changing the turn to the next player
+        string player_which_played = p_game->Turns.front();
+        p_game->Turns.pop();
+        p_game->Turns.push(player_which_played);
         p_game->change_Turn();
     }
 }

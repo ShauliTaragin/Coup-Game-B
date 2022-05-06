@@ -86,5 +86,9 @@ namespace coup{
             Turns.push(player_currently_dead);
         }
     }
+    bool Game::is_player_alive(string player_name){
+        size_t i = player_position(player_name);
+        return alive.at(i);
+    }
 }
 

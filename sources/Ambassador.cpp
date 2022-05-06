@@ -21,6 +21,9 @@ namespace coup {
     }
 
     void Ambassador::transfer(Player &player1, Player &player2) {
+        if (player1.Coins<1){
+            throw invalid_argument("no coins to transfer");
+        }
         if(p_game->Turns.front()!=this->name){
             throw invalid_argument("Not your turn");
         }
