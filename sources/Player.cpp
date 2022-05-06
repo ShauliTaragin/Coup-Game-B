@@ -11,12 +11,14 @@ namespace coup{
             throw invalid_argument("No Room for more Players");
         }
         current_game.Players.push_back(player_name);//adding player to game
+        current_game.alive.push_back(true);//adding player to game
         current_game.Turns.push(player_name);
         current_game.Bank_of_Actions.push_back("entered");
     }
 
     //Now the 3 actions each player can execute in each turn
     Player &Player::income() {
+        //maybe need to add here and in forign aid check if this player is alive
         if(p_game->Turns.front()!=this->name){
             throw invalid_argument("Not your turn");
         }

@@ -10,6 +10,7 @@ namespace coup{
     class Game{
     public:
         vector<string> Players;
+        vector<bool> alive;
         queue<string> Turns;
         vector<string> Bank_of_Actions;
         /* income
