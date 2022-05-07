@@ -4,7 +4,7 @@
 #include "Assassin.hpp"
 
 namespace coup{
-
+    int five =5;
     void Assassin::coup(Player& player1) {
         if(!p_game->is_player_alive(player1.name)){
             throw invalid_argument("player already dead");
@@ -12,8 +12,8 @@ namespace coup{
         if(p_game->Turns.front()!=this->name){
             throw invalid_argument("Not your turn");
         }
-        if(this->Coins >= 7){
-            this->Coins-=7;
+        if(this->Coins >= five+2){
+            this->Coins-=five+2;
             p_game->remove_player(player1.name);
             p_game->Bank_of_Actions.at(p_game->player_position(name))
                     = "coup "+player1.name;
@@ -23,7 +23,7 @@ namespace coup{
             p_game->change_Turn();
             return;
         }
-        if(this->Coins < 3){
+        if(this->Coins < five-2){
             throw invalid_argument("Not enough coins to do this action");
         }
         p_game->Bank_of_Actions.at(p_game->player_position(name))

@@ -5,6 +5,9 @@
 namespace coup{
 
     void Captain::block(Player & player1) {
+        if(player1.action_on_him== nullptr){
+            throw invalid_argument("nothing to block");
+        }
         player1.action_on_him->Coins+=2;
         player1.Coins-=2;
         size_t i = p_game->player_position(player1.name);

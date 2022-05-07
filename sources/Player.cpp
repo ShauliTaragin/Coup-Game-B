@@ -5,9 +5,10 @@
 #include "Player.hpp"
 using namespace std;
 namespace coup{
+    int seven = 7;
     Player::Player(Game & current_game, string player_name) : p_game(&current_game),
                                                               name(player_name) , Coins(0){
-        if(current_game.Players.size()>5){
+        if(current_game.Players.size()>seven-2){
             throw invalid_argument("No Room for more Players");
         }
         if(!p_game->started){
@@ -17,9 +18,8 @@ namespace coup{
         current_game.alive.push_back(true);//adding player to game
         current_game.Turns.push(player_name);
         current_game.Bank_of_Actions.push_back("entered");
-
+        action_on_him = nullptr;
     }
-
     //Now the 3 actions each player can execute in each turn
     Player &Player::income() {
         //maybe need to add here and in forign aid check if this player is alive
@@ -69,12 +69,12 @@ namespace coup{
         if(p_game->Turns.front()!=this->name){
             throw invalid_argument("Not your turn");
         }
-        if(this->Coins < 7){
+        if(this->Coins < seven){
             throw invalid_argument("Not enough coins to do this action");
         }
         p_game->Bank_of_Actions.at(p_game->player_position(name))
                 = "coup "+player2.name;
-        this->Coins-=7;
+        this->Coins-=seven;
         p_game->remove_player(player2.name);
         //changing the turn to the next player
         string player_which_played = p_game->Turns.front();
