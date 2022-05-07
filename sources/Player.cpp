@@ -5,8 +5,8 @@
 #include "Player.hpp"
 using namespace std;
 namespace coup{
-    int seven = 7;
-    Player::Player(Game & current_game, string player_name) : p_game(&current_game),
+    const int seven = 7;
+    Player::Player(Game & current_game, string const & player_name) : p_game(&current_game),
                                                               name(player_name) , Coins(0){
         if(current_game.Players.size()>seven-2){
             throw invalid_argument("No Room for more Players");
@@ -42,7 +42,7 @@ namespace coup{
         return *this;
     }
     Player &Player::foreign_aid() {
-        if(this->Coins>=10){
+        if(this->Coins>=seven+3){
             throw invalid_argument("Has more then 10 coins");
         }
         //throw if not his turn
@@ -62,7 +62,7 @@ namespace coup{
         return *this;
     }
 
-    void Player::coup(Player player2) {
+    void Player::coup(Player & player2) {
         if(!p_game->is_player_alive(player2.name)){
             throw invalid_argument("player already dead");
         }

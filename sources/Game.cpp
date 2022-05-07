@@ -42,7 +42,7 @@ namespace coup{
         return temp_players.front();
     }
 
-    void Game::remove_player(string player_name) {
+    void Game::remove_player(string const & player_name) {
         size_t i = player_position(player_name);
         alive.at(i) = false;
 //        Players.erase(std::remove(Players.begin(), Players.end(), player_name), Players.end());
@@ -65,7 +65,7 @@ namespace coup{
 //        }
     }
 
-    size_t Game::player_position(string player_name) {
+    size_t Game::player_position(string const & player_name) {
         size_t position =0;
         for (size_t i = 0; i < Players.size() ; ++i) {
             if(Players.at(static_cast<unsigned long>(i)) == player_name){
@@ -89,7 +89,7 @@ namespace coup{
             Turns.push(player_currently_dead);
         }
     }
-    bool Game::is_player_alive(string player_name){
+    bool Game::is_player_alive(string const & player_name){
         size_t i = player_position(player_name);
         return alive.at(i);
     }

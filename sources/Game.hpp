@@ -28,10 +28,10 @@ namespace coup{
         string turn();
         vector<string> players();
         string winner();
-        void remove_player(string player_name);
-        size_t player_position(string player_name);
+        void remove_player(string const & player_name);
+        size_t player_position(string const &  player_name);
         void change_Turn();
-        bool is_player_alive(string player_name);
+        bool is_player_alive(string const & player_name);
         //other methods we need for game:
         //next() -> perhaps runned by a queue
         //remove ->removing player perhaps from queue and vector

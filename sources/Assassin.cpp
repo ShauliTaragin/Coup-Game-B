@@ -4,7 +4,7 @@
 #include "Assassin.hpp"
 
 namespace coup{
-    int five =5;
+    const int five =5;
     void Assassin::coup(Player& player1) {
         if(!p_game->is_player_alive(player1.name)){
             throw invalid_argument("player already dead");
